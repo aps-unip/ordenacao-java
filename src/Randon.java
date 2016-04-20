@@ -1,4 +1,4 @@
-public class Numeros {
+public class Randon {
 
     private int[] numbers;
     private final static int SIZE = 100000;
