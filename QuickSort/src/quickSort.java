@@ -23,12 +23,12 @@ public class quickSort {
         }
     }
     private static int separe(int[] vetor, int inicio, int fim) {
-        int pivo = vetor[inicio];
+        int base = vetor[inicio];
         int i = inicio + 1, f = fim;
         while(i <= f){
-            if(vetor[i] <= pivo){
+            if(vetor[i] <= base){
                 i++;
-            }else if (pivo < vetor[f]) {
+            }else if (base < vetor[f]) {
                 f--;
             }else{
                 int troca = vetor[i];
@@ -39,7 +39,7 @@ public class quickSort {
             }
         }
         vetor[inicio] = vetor[f];
-        vetor[f] = pivo;
+        vetor[f] = base;
         return f;
     }
 }
