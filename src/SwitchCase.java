@@ -1,8 +1,9 @@
 import java.io.FileNotFoundException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class SwitchCase {
 
-    public int firstSwitch() throws Exception {
+    public static int firstSwitch() throws Exception {
 
 
 
@@ -15,36 +16,31 @@ public class SwitchCase {
         int menuOption = menu.menu(); // 1 - 2 file
 
 
-
         int[] arrayNum;
 
         switch (menuOption){
             case 1:
                 arrayNum = file.scan();
-                secondSwitch(menuSelect, arrayNum);
+                secondSwitch(menuSelect, menuOption,arrayNum);
                 break;
             case 2:
                 arrayNum = randon.setUp();
-                secondSwitch(menuSelect, arrayNum);
+                secondSwitch(menuSelect, menuOption, arrayNum);
                 break;
             default:
                 System.out.println("Opção invalida, escolha 1 ou 2.");
         }
-        return 0;
+        return menuOption;
     }
 
 
 
-    public void secondSwitch(int menuSelect, int[] arrayNum) {
+    public static void secondSwitch(int menuSelect,int menuOption, int[] arrayNum) throws Exception {
 
         long startTime;
         long stopTime;
         long elapsedTime;
-        long elapsedTimeBubble;
-        long elapsedTimeInsert;
-        long elapsedTimeMerge;
-        long elapsedTimeQuick;
-        long elapsedTimeSelection;
+
 
         Time time = new Time();
 
@@ -53,6 +49,7 @@ public class SwitchCase {
         SelectionSort selectionSort = new SelectionSort();
         QuickSort quickSort = new QuickSort();
         InsertSort insertSort = new InsertSort();
+        Todos todos = new Todos();
 
         switch (menuSelect) {
 
@@ -68,7 +65,7 @@ public class SwitchCase {
                 }
 
                 System.out.println("\n");
-                System.out.println("\nMerge sort: " + elapsedTime + " Milesegundos");
+                System.out.println("\nBubble sort: " + elapsedTime + " Milesegundos");
 
                 break;
             case 2:
@@ -132,45 +129,11 @@ public class SwitchCase {
 
             case 6:
                 //Todos
-                startTime = time.start();
-                quickSort.sort(arrayNum, 0, arrayNum.length - 1);
-                stopTime = time.stop();
-                elapsedTimeQuick = stopTime - startTime;
-
-                startTime = 0;
-                stopTime = 0;
-                startTime = time.start();
-                bubbleSort.sort(arrayNum);
-                stopTime = time.stop();
-                elapsedTimeBubble = stopTime - startTime;
-
-                startTime = 0;
-                stopTime = 0;
-                startTime = time.start();
-                insertSort.sort(arrayNum);
-                stopTime = time.stop();
-                elapsedTimeInsert = stopTime - startTime;
-
-
-                startTime = 0;
-                stopTime = 0;
-                startTime = time.start();
-                mergeSort.sort(arrayNum);
-                stopTime = time.stop();
-                elapsedTimeMerge = stopTime - startTime;
-
-                startTime = 0;
-                stopTime = 0;
-                startTime = time.start();
-                selectionSort.sort(arrayNum);
-                stopTime = time.stop();
-                elapsedTimeSelection = stopTime - startTime;
-
-                System.out.println("\nBubble sort: " + elapsedTimeBubble + " Milesegundos");
-                System.out.println("\nInsert sort: " + elapsedTimeInsert + " Milesegundos");
-                System.out.println("\nMerge sort: " + elapsedTimeMerge + " Milesegundos");
-                System.out.println("\nQuick sort: " + elapsedTimeQuick + " Milesegundos");
-                System.out.println("\nSelection sort: " + elapsedTimeSelection + " Milesegundos");
+                todos.todosBubbleSort(menuOption);
+                todos.todosInsertSort(menuOption);
+                todos.todosMergeSort(menuOption);
+                todos.todosQuicksort(menuOption);
+                todos.todosSelectionSort(menuOption);
                 break;
 
         }
