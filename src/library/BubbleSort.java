@@ -1,7 +1,11 @@
+package library;
 
-public class BubbleSort {
+public class BubbleSort extends MetodosOrdenacao {
 
-    public static void sort(int[] vetor) {
+    @Override
+    public  void sort(int[] vetor) {
+        long startTime = System.currentTimeMillis();
+
         boolean troca = true;
         int aux, i;
         while (troca) {
@@ -15,6 +19,6 @@ public class BubbleSort {
                 }
             }
         }
-
+        super.elapsedTime = System.currentTimeMillis()-startTime;
     }
 }

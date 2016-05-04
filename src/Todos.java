@@ -1,3 +1,9 @@
+import helpers.Print;
+import helpers.Randon;
+import helpers.ReadFile;
+import helpers.Time;
+import library.*;
+
 import java.io.FileNotFoundException;
 
 public class Todos {
@@ -23,31 +29,24 @@ public class Todos {
 
     public void todosBubbleSort(int menuSelect) {
         int[] arrayNum = todosNumber(menuSelect);
-        startTime = time.start();
+
         bubbleSort.sort(arrayNum);
-        stopTime = time.stop();
-        elapsedTime = stopTime - startTime;
-        print.imprimir("Bubble sort: ", elapsedTime);
+        print.imprimir("Bubble sort: ", bubbleSort.getElapsedTime());
 
     }
 
     public void todosInsertSort(int menuSelect) {
         int[] arrayNum = todosNumber(menuSelect);
-        startTime = time.start();
+
         insertSort.sort(arrayNum);
-        stopTime = time.stop();
-        elapsedTime = stopTime - startTime;
-        print.imprimir("Insert sort: ", elapsedTime);
+        print.imprimir("Insert sort: ", insertSort.getElapsedTime());
     }
 
     public void todosMergeSort(int menuSelect) {
         int[] arrayNum = todosNumber(menuSelect);
-        startTime = time.start();
-        mergeSort.sort(arrayNum);
-        stopTime = time.stop();
-        elapsedTime = stopTime - startTime;
-        print.imprimir("Merge sort: ", elapsedTime);
 
+        mergeSort.sort(arrayNum);
+        print.imprimir("Merge sort: ", mergeSort.getElapsedTime());
     }
 
     public void todosQuicksort(int menuSelect) {
@@ -61,11 +60,9 @@ public class Todos {
 
     public void todosSelectionSort(int menuSelect) {
         int[] arrayNum = todosNumber(menuSelect);
-        startTime = time.start();
+
         selectionSort.sort(arrayNum);
-        stopTime = time.stop();
-        elapsedTime = stopTime - startTime;
-        print.imprimir("Selection sort: ", elapsedTime);
+        print.imprimir("Selection sort: ", selectionSort.getElapsedTime());
     }
 
 

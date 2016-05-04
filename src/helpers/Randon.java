@@ -1,3 +1,5 @@
+package helpers;
+
 public class Randon {
 
     private static int[] numbers;

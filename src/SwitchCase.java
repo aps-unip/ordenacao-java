@@ -1,9 +1,11 @@
-import java.io.FileNotFoundException;
-import java.util.concurrent.atomic.AtomicInteger;
+import helpers.Randon;
+import helpers.ReadFile;
+import helpers.Time;
+import library.*;
 
 public class SwitchCase {
 
-    public static int firstSwitch() throws Exception {
+    public  int firstSwitch() throws Exception {
 
 
 
@@ -35,7 +37,7 @@ public class SwitchCase {
 
 
 
-    public static void secondSwitch(int menuSelect,int menuOption, int[] arrayNum) throws Exception {
+    public  void secondSwitch(int menuSelect,int menuOption, int[] arrayNum) throws Exception {
 
         long startTime;
         long stopTime;

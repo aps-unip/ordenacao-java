@@ -1,15 +1,15 @@
-
+package library;
 
 public class QuickSort {
 
-    public static void sort(int[] vetor, int inicio, int fim) {
+    public  void sort(int[] vetor, int inicio, int fim) {
         if (inicio < fim){
             int base = separe(vetor, inicio, fim);
             sort(vetor, inicio, base - 1);
             sort(vetor, base + 1, fim);
         }
     }
-    public static int separe(int[] vetor, int inicio, int fim) {
+    public  int separe(int[] vetor, int inicio, int fim) {
         int pivo = vetor[inicio];
         int i = inicio + 1, f = fim;
         while(i <= f){

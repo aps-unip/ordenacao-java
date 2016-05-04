@@ -1,8 +1,11 @@
+package library;
 
-public class SelectionSort {
+public class SelectionSort extends MetodosOrdenacao {
 
     public void sort(int[] vetor) {
-        long tempoinicial = System.currentTimeMillis();
+        long startTime=System.currentTimeMillis();
+        //long tempoinicial = System.currentTimeMillis();
+
         for (int i = 0; i < vetor.length; i++) {
             int indiceMinimo = i;
             for (int j = i + 1; j < vetor.length; j++) {
@@ -15,6 +18,6 @@ public class SelectionSort {
             vetor[indiceMinimo] = vetor[i];
             vetor[i] = tmp;
         }
-
+        super.elapsedTime=System.currentTimeMillis()-startTime;
     }
 }

@@ -1,7 +1,10 @@
+package library;
 
-public class InsertSort {
+public class InsertSort extends MetodosOrdenacao {
 
+    @Override
     public void sort(int[] vetor) {
+        long startTime = System.currentTimeMillis();
 
         for (int i = 0; i < vetor.length; i++) {
             int atual = vetor[i];
@@ -12,6 +15,7 @@ public class InsertSort {
             }
             vetor[j + 1] = atual;;
         }
+        super.elapsedTime = System.currentTimeMillis()-startTime;
 
     }
 }

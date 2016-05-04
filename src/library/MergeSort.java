@@ -1,16 +1,24 @@
+package library;
 
-public class MergeSort {
+public class MergeSort extends MetodosOrdenacao{
 
     private int[] array;
     private int[] tempMergeArray;
     private int length;
 
+    @Override
     public void sort(int[] inputArray) {
+        long startTime = System.currentTimeMillis();
+
         this.array = inputArray;
         this.length = inputArray.length;
         this. tempMergeArray = new int[length];
         doMergeSort(0, length - 1);
+
+        super.elapsedTime = System.currentTimeMillis()-startTime;
+
     }
+
 
     private void doMergeSort(int lowerIndex, int higherIndex) {
 
