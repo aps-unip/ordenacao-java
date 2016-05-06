@@ -7,7 +7,8 @@ public class MergeSort extends MetodosOrdenacao{
     private int length;
 
     @Override
-    public void sort(int[] inputArray) {
+    public void sort(int[] vetorOriginal) {
+        int[] inputArray = super.copy(vetorOriginal);
         long startTime = System.currentTimeMillis();
 
         this.array = inputArray;
@@ -16,6 +17,7 @@ public class MergeSort extends MetodosOrdenacao{
         doMergeSort(0, length - 1);
 
         super.elapsedTime = System.currentTimeMillis()-startTime;
+        this.arrayNum = inputArray;
 
     }
 
@@ -55,4 +57,9 @@ public class MergeSort extends MetodosOrdenacao{
             }
 
         }
+
+    public String print(){
+        System.out.println("Merge "+super.print());
+        return null;
+    }
 }

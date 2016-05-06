@@ -2,7 +2,8 @@ package library;
 
 public class SelectionSort extends MetodosOrdenacao {
 
-    public void sort(int[] vetor) {
+    public void sort(int[] vetorOriginal) {
+        int[] vetor = super.copy(vetorOriginal);
         long startTime=System.currentTimeMillis();
         //long tempoinicial = System.currentTimeMillis();
 
@@ -19,5 +20,11 @@ public class SelectionSort extends MetodosOrdenacao {
             vetor[i] = tmp;
         }
         super.elapsedTime=System.currentTimeMillis()-startTime;
+        this.arrayNum = vetor;
+    }
+
+    public String print(){
+        System.out.println("Selection "+super.print());
+        return null;
     }
 }

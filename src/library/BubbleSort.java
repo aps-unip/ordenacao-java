@@ -3,7 +3,9 @@ package library;
 public class BubbleSort extends MetodosOrdenacao {
 
     @Override
-    public  void sort(int[] vetor) {
+    public  void sort(int[] vetorOriginal) {
+        int[] vetor = super.copy(vetorOriginal);
+
         long startTime = System.currentTimeMillis();
 
         boolean troca = true;
@@ -20,5 +22,11 @@ public class BubbleSort extends MetodosOrdenacao {
             }
         }
         super.elapsedTime = System.currentTimeMillis()-startTime;
+        this.arrayNum = vetor;
+    }
+
+    public String print(){
+        System.out.println("Bubble "+super.print());
+        return null;
     }
 }

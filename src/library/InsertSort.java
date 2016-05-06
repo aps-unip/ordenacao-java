@@ -3,7 +3,9 @@ package library;
 public class InsertSort extends MetodosOrdenacao {
 
     @Override
-    public void sort(int[] vetor) {
+    public void sort(int[] vetorOriginal) {
+        int[] vetor = super.copy(vetorOriginal);
+
         long startTime = System.currentTimeMillis();
 
         for (int i = 0; i < vetor.length; i++) {
@@ -13,9 +15,14 @@ public class InsertSort extends MetodosOrdenacao {
                 vetor[j + 1] = vetor[j];
                 j--;
             }
-            vetor[j + 1] = atual;;
+            vetor[j + 1] = atual;
         }
         super.elapsedTime = System.currentTimeMillis()-startTime;
+        this.arrayNum = vetor;
+    }
 
+    public String print(){
+        System.out.println("Insert "+super.print());
+        return null;
     }
 }
