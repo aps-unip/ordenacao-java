@@ -1,22 +1,16 @@
 import helpers.Randon;
 import helpers.ReadFile;
-import helpers.Time;
 import library.*;
 
 public class SwitchCase {
 
     public  int firstSwitch() throws Exception {
-
-
-
         ReadFile file = new ReadFile();
         Randon randon = new Randon();
         Menu menu = new Menu();
 
-
-        int menuSelect = menu.selectMetodo(); // 1 - 6 metodos
-        int menuOption = menu.menu(); // 1 - 2 file
-
+        int menuSelect = menu.selectMetodo(); // 1 - 6 métodos
+        int menuOption = menu.menu(); // 1 - 2 file/vetor
 
         int[] arrayNum;
 
@@ -30,21 +24,12 @@ public class SwitchCase {
                 secondSwitch(menuSelect, menuOption, arrayNum);
                 break;
             default:
-                System.out.println("Opção invalida, escolha 1 ou 2.");
+                System.out.println("Opção inválida, escolha 1 ou 2.");
         }
         return menuOption;
     }
 
-
-
     public  void secondSwitch(int menuSelect,int menuOption, int[] arrayNum) throws Exception {
-
-        long startTime;
-        long stopTime;
-        long elapsedTime;
-
-
-        Time time = new Time();
 
         MergeSort mergeSort = new MergeSort();
         BubbleSort bubbleSort = new BubbleSort();
@@ -57,88 +42,70 @@ public class SwitchCase {
 
             case 1:
                 //bubble
-                startTime = time.start();
                 bubbleSort.sort(arrayNum);
-                stopTime = time.stop();
-                elapsedTime = stopTime - startTime;
-                for (int i:arrayNum) {
-                    System.out.print(i);
-                    System.out.print(" ");
-                }
-
-                System.out.println("\n");
-                System.out.println("\nBubble sort: " + elapsedTime + " Milesegundos");
-
+                bubbleSort.printVetor();
+                bubbleSort.print(); // retornando o tempo de execução do tipo de ordenação
                 break;
             case 2:
                 //Insert
-                startTime = time.start();
                 insertSort.sort(arrayNum);
-                stopTime = time.stop();
-                elapsedTime = stopTime - startTime;
-                for (int i:arrayNum) {
-                    System.out.print(i);
-                    System.out.print(" ");
-                }
+                insertSort.printVetor();
+                insertSort.print();
 
-                System.out.println("\n");
-                System.out.println("\nInsert sort: " + elapsedTime + " Milesegundos");
                 break;
             case 3:
                 //Merge
-                startTime = time.start();
                 mergeSort.sort(arrayNum);
-                stopTime = time.stop();
-                elapsedTime = stopTime - startTime;
-
-                for (int i:arrayNum) {
-                    System.out.print(i);
-                    System.out.print(" ");
-                }
-
-                System.out.println("\n");
-                System.out.println("\nMerge sort: " + elapsedTime + " Milesegundos");
+                mergeSort.printVetor();
+                mergeSort.print();
                 break;
             case 4:
                 //Quick
-                startTime = time.start();
-                quickSort.sort(arrayNum, 0, arrayNum.length - 1);
-                stopTime = time.stop();
-                elapsedTime = stopTime - startTime;
-                for (int i:arrayNum) {
-                    System.out.print(i);
-                    System.out.print(" ");
-                }
-
-                System.out.println("\n");
-                System.out.println("\nQuick sort: " + elapsedTime + " Milesegundos");
+                quickSort.sort(arrayNum);
+                quickSort.printVetor();
+                quickSort.print();
                 break;
             case 5:
                 //Selection
-                startTime = time.start();
                 selectionSort.sort(arrayNum);
-                stopTime = time.stop();
-                elapsedTime = stopTime - startTime;
-                for (int i:arrayNum) {
-                    System.out.print(i);
-                    System.out.print(" ");
-                }
-
-                System.out.println("\n");
-                System.out.println("\nSelection sort: " + elapsedTime + " Milesegundos");
-
+                selectionSort.printVetor();
+                selectionSort.print();
                 break;
 
             case 6:
                 //Todos
-                todos.todosBubbleSort(menuOption);
-                todos.todosInsertSort(menuOption);
-                todos.todosMergeSort(menuOption);
-                todos.todosQuicksort(menuOption);
-                todos.todosSelectionSort(menuOption);
+
+                int[] vetor = this.trataSecondSwitch(menuOption);
+
+                todos.todosBubbleSort(vetor);
+                todos.todosInsertSort(vetor);
+                todos.todosMergeSort(vetor);
+                todos.todosQuicksort(vetor);
+                todos.todosSelectionSort(vetor);
                 break;
 
         }
 
+    }
+
+    public int[] trataSecondSwitch(int menuSelect) {
+        int[] arrayNum;
+        ReadFile file = new ReadFile();
+        Randon randon = new Randon();
+
+        switch (menuSelect) {
+
+            case 1:
+                arrayNum = file.scan();
+                break;
+
+            case 2:
+                arrayNum = randon.setUp();
+                break;
+            default:
+                arrayNum=null;
+                break;
+        }
+        return arrayNum;
     }
 }

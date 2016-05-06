@@ -1,8 +1,6 @@
 import java.util.Scanner;
 
 public class Menu {
-
-
     public int menu() {
 
         System.out.println("Selecione a opção desejada\n");
@@ -16,10 +14,7 @@ public class Menu {
         return escolha;
     }
 
-
-
     public int selectMetodo() {
-
         System.out.println("Selecione o método de ordenação desejada\n");
         System.out.println("1 - Bubble sort");
         System.out.println("2 - Insert sort");
@@ -29,9 +24,7 @@ public class Menu {
         System.out.println("6 - Todos\n");
         System.out.println("Sua escolha é: ");
 
-
         Scanner ler = new Scanner(System.in);
-
         int escolhaMetodo = ler.nextInt();
 
         return escolhaMetodo;

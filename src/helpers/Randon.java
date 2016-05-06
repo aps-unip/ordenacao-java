@@ -2,17 +2,28 @@ package helpers;
 
 public class Randon {
 
-    private static int[] numbers;
-    private final static int SIZE = 100000;
-    private final static int MAX = 200000;
+    private int[] numbers;
+    private final  int SIZE;
+    private final  int MAX ;
 
-    public static int[] setUp() throws Exception {
-        numbers = new int[SIZE];
+    public Randon(){
+        this.SIZE = 32767;
+        this.MAX = 200000;
+
+    }
+
+    public  int[] setUp(){
+        try{
+        numbers = new int[this.SIZE];
         java.util.Random generator = new java.util.Random();
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = generator.nextInt(MAX);
+            numbers[i] = generator.nextInt(this.MAX);
         }
 
         return numbers;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
