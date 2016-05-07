@@ -7,7 +7,7 @@ public class Randon {
     private final  int MAX ;
 
     public Randon(){
-        this.SIZE = 32767;
+        this.SIZE = 100000;
         this.MAX = 200000;
 
     }
